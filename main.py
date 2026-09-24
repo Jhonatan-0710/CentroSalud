@@ -153,6 +153,22 @@ def registrar_historia_clinica():
     print("\nHistoria clínica registrada correctamente.")
 
 
+def consultar_historia_clinica():
+    print("\n===== CONSULTA DE HISTORIA CLÍNICA =====")
+
+    dni_buscar = input("Ingrese el DNI del paciente: ")
+
+    for historia in historias_clinicas:
+        if historia["dni"] == dni_buscar:
+            print("\nHistoria clínica encontrada:")
+            print("DNI del paciente:", historia["dni"])
+            print("Diagnóstico:", historia["diagnostico"])
+            print("Tratamiento:", historia["tratamiento"])
+            return
+
+    print("\nNo se encontró una historia clínica para ese DNI.")
+
+
 # Ejecución del sistema
 
 print("\n--- Módulo de pacientes ---")
@@ -168,3 +184,4 @@ registrar_usuario()
 
 print("\n--- Módulo de historia clínica ---")
 registrar_historia_clinica()
+consultar_historia_clinica()
