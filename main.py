@@ -6,7 +6,11 @@ print("Sistema iniciado correctamente.")
 print("Proyecto de gestión asistencial y administrativa.")
 
 
+# Lista donde se almacenan los pacientes
 pacientes = []
+
+# Lista donde se almacenan las citas
+citas = []
 
 
 def registrar_paciente():
@@ -14,6 +18,7 @@ def registrar_paciente():
 
     nombre = input("Ingrese el nombre del paciente: ")
 
+    # Validación del DNI
     while True:
         dni = input("Ingrese el DNI del paciente: ")
 
@@ -24,15 +29,6 @@ def registrar_paciente():
 
     edad = input("Ingrese la edad del paciente: ")
 
-    paciente = {
-        "nombre": nombre,
-        "dni": dni,
-        "edad": edad
-    }
-
-    pacientes.append(paciente)
-
-    print("\nPaciente registrado correctamente.")
     paciente = {
         "nombre": nombre,
         "dni": dni,
@@ -60,7 +56,37 @@ def buscar_paciente():
     print("\nNo se encontró un paciente con ese DNI.")
 
 
+def registrar_cita():
+    print("\n===== REGISTRO DE CITA MÉDICA =====")
+
+    dni = input("Ingrese el DNI del paciente: ")
+    fecha = input("Ingrese la fecha de la cita (DD/MM/AAAA): ")
+    hora = input("Ingrese la hora de la cita (HH:MM): ")
+    especialidad = input("Ingrese la especialidad médica: ")
+
+    cita = {
+        "dni": dni,
+        "fecha": fecha,
+        "hora": hora,
+        "especialidad": especialidad
+    }
+
+    citas.append(cita)
+
+    print("\nCita médica registrada correctamente.")
+    print("DNI del paciente:", dni)
+    print("Fecha:", fecha)
+    print("Hora:", hora)
+    print("Especialidad:", especialidad)
+
+
+# Ejecución del sistema
+
 print("\n--- Módulo de pacientes ---")
 
 registrar_paciente()
 buscar_paciente()
+
+print("\n--- Módulo de citas ---")
+
+registrar_cita()
