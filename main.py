@@ -6,6 +6,9 @@ print("Sistema iniciado correctamente.")
 print("Proyecto de gestión asistencial y administrativa.")
 
 
+pacientes = []
+
+
 def registrar_paciente():
     print("\n===== REGISTRO DE PACIENTE =====")
 
@@ -13,11 +16,34 @@ def registrar_paciente():
     dni = input("Ingrese el DNI del paciente: ")
     edad = input("Ingrese la edad del paciente: ")
 
+    paciente = {
+        "nombre": nombre,
+        "dni": dni,
+        "edad": edad
+    }
+
+    pacientes.append(paciente)
+
     print("\nPaciente registrado correctamente.")
-    print("Nombre:", nombre)
-    print("DNI:", dni)
-    print("Edad:", edad)
+
+
+def buscar_paciente():
+    print("\n===== BÚSQUEDA DE PACIENTE =====")
+
+    dni_buscar = input("Ingrese el DNI del paciente que desea buscar: ")
+
+    for paciente in pacientes:
+        if paciente["dni"] == dni_buscar:
+            print("\nPaciente encontrado:")
+            print("Nombre:", paciente["nombre"])
+            print("DNI:", paciente["dni"])
+            print("Edad:", paciente["edad"])
+            return
+
+    print("\nNo se encontró un paciente con ese DNI.")
 
 
 print("\n--- Módulo de pacientes ---")
+
 registrar_paciente()
+buscar_paciente()
