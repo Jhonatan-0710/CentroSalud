@@ -24,7 +24,6 @@ def registrar_paciente():
 
     nombre = input("Ingrese el nombre del paciente: ")
 
-    # Validación del DNI
     while True:
         dni = input("Ingrese el DNI del paciente: ")
 
@@ -80,10 +79,21 @@ def registrar_cita():
     citas.append(cita)
 
     print("\nCita médica registrada correctamente.")
-    print("DNI del paciente:", dni)
-    print("Fecha:", fecha)
-    print("Hora:", hora)
-    print("Especialidad:", especialidad)
+
+
+def consultar_citas():
+    print("\n===== CITAS REGISTRADAS =====")
+
+    if not citas:
+        print("No existen citas registradas.")
+        return
+
+    for numero, cita in enumerate(citas, start=1):
+        print("\nCita", numero)
+        print("DNI del paciente:", cita["dni"])
+        print("Fecha:", cita["fecha"])
+        print("Hora:", cita["hora"])
+        print("Especialidad:", cita["especialidad"])
 
 
 def registrar_usuario():
@@ -141,26 +151,20 @@ def registrar_historia_clinica():
     historias_clinicas.append(historia)
 
     print("\nHistoria clínica registrada correctamente.")
-    print("DNI del paciente:", dni)
-    print("Diagnóstico:", diagnostico)
-    print("Tratamiento:", tratamiento)
 
 
 # Ejecución del sistema
 
 print("\n--- Módulo de pacientes ---")
-
 registrar_paciente()
 buscar_paciente()
 
 print("\n--- Módulo de citas ---")
-
 registrar_cita()
+consultar_citas()
 
 print("\n--- Módulo de usuarios ---")
-
 registrar_usuario()
 
 print("\n--- Módulo de historia clínica ---")
-
 registrar_historia_clinica()
