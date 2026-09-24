@@ -12,6 +12,9 @@ pacientes = []
 # Lista donde se almacenan las citas
 citas = []
 
+# Lista donde se almacenan los usuarios
+usuarios = []
+
 
 def registrar_paciente():
     print("\n===== REGISTRO DE PACIENTE =====")
@@ -80,6 +83,45 @@ def registrar_cita():
     print("Especialidad:", especialidad)
 
 
+def registrar_usuario():
+    print("\n===== REGISTRO DE USUARIO =====")
+
+    nombre = input("Ingrese el nombre del usuario: ")
+    usuario = input("Ingrese el nombre de usuario: ")
+
+    print("\nSeleccione el rol:")
+    print("1. Administrador")
+    print("2. Médico")
+    print("3. Recepcionista")
+
+    opcion = input("Seleccione una opción: ")
+
+    roles = {
+        "1": "Administrador",
+        "2": "Médico",
+        "3": "Recepcionista"
+    }
+
+    if opcion not in roles:
+        print("\nError: opción de rol no válida.")
+        return
+
+    rol = roles[opcion]
+
+    nuevo_usuario = {
+        "nombre": nombre,
+        "usuario": usuario,
+        "rol": rol
+    }
+
+    usuarios.append(nuevo_usuario)
+
+    print("\nUsuario registrado correctamente.")
+    print("Nombre:", nombre)
+    print("Usuario:", usuario)
+    print("Rol:", rol)
+
+
 # Ejecución del sistema
 
 print("\n--- Módulo de pacientes ---")
@@ -90,3 +132,7 @@ buscar_paciente()
 print("\n--- Módulo de citas ---")
 
 registrar_cita()
+
+print("\n--- Módulo de usuarios ---")
+
+registrar_usuario()
