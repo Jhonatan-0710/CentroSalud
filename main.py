@@ -15,6 +15,9 @@ citas = []
 # Lista donde se almacenan los usuarios
 usuarios = []
 
+# Lista donde se almacenan las historias clínicas
+historias_clinicas = []
+
 
 def registrar_paciente():
     print("\n===== REGISTRO DE PACIENTE =====")
@@ -122,6 +125,27 @@ def registrar_usuario():
     print("Rol:", rol)
 
 
+def registrar_historia_clinica():
+    print("\n===== HISTORIA CLÍNICA =====")
+
+    dni = input("Ingrese el DNI del paciente: ")
+    diagnostico = input("Ingrese el diagnóstico: ")
+    tratamiento = input("Ingrese el tratamiento indicado: ")
+
+    historia = {
+        "dni": dni,
+        "diagnostico": diagnostico,
+        "tratamiento": tratamiento
+    }
+
+    historias_clinicas.append(historia)
+
+    print("\nHistoria clínica registrada correctamente.")
+    print("DNI del paciente:", dni)
+    print("Diagnóstico:", diagnostico)
+    print("Tratamiento:", tratamiento)
+
+
 # Ejecución del sistema
 
 print("\n--- Módulo de pacientes ---")
@@ -136,3 +160,7 @@ registrar_cita()
 print("\n--- Módulo de usuarios ---")
 
 registrar_usuario()
+
+print("\n--- Módulo de historia clínica ---")
+
+registrar_historia_clinica()
