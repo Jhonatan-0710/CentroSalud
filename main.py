@@ -169,6 +169,19 @@ def consultar_historia_clinica():
     print("\nNo se encontró una historia clínica para ese DNI.")
 
 
+def mostrar_resumen():
+    print("\n==========================================")
+    print(" RESUMEN DEL SISTEMA")
+    print("==========================================")
+
+    print("Pacientes registrados:", len(pacientes))
+    print("Citas registradas:", len(citas))
+    print("Usuarios registrados:", len(usuarios))
+    print("Historias clínicas:", len(historias_clinicas))
+
+    print("==========================================")
+
+
 # Ejecución del sistema
 
 print("\n--- Módulo de pacientes ---")
@@ -185,3 +198,6 @@ registrar_usuario()
 print("\n--- Módulo de historia clínica ---")
 registrar_historia_clinica()
 consultar_historia_clinica()
+
+print("\n--- Resumen del sistema ---")
+mostrar_resumen()
