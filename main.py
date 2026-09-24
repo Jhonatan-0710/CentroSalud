@@ -13,9 +13,26 @@ def registrar_paciente():
     print("\n===== REGISTRO DE PACIENTE =====")
 
     nombre = input("Ingrese el nombre del paciente: ")
-    dni = input("Ingrese el DNI del paciente: ")
+
+    while True:
+        dni = input("Ingrese el DNI del paciente: ")
+
+        if dni.isdigit() and len(dni) == 8:
+            break
+
+        print("Error: el DNI debe tener exactamente 8 dígitos.")
+
     edad = input("Ingrese la edad del paciente: ")
 
+    paciente = {
+        "nombre": nombre,
+        "dni": dni,
+        "edad": edad
+    }
+
+    pacientes.append(paciente)
+
+    print("\nPaciente registrado correctamente.")
     paciente = {
         "nombre": nombre,
         "dni": dni,
